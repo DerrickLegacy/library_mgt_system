@@ -94,8 +94,8 @@ function Login() {
       navigate("/home");
     } else {
       // Invalid credentials, show error message
+      // console.log("Invalid Credentials");
       setInvalid(true);
-      console.log("Invalid Credentials");
     }
   };
 

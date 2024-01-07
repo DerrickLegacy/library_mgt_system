@@ -10,7 +10,6 @@ import Auth from "../Auth";
 // import {  useFormik } from "formik";
 
 function Register() {
-  
   return (
     <>
       <Auth />
@@ -22,7 +21,7 @@ function Register() {
           <Row>
             <Col style={{ marginTop: "10px", marginBottom: "10px" }}>
               <Card>
-                <Card.Header>
+                <Card.Header>t
                   <h3>Register Account</h3>
                 </Card.Header>
                 <Card.Body>
@@ -143,10 +142,7 @@ function Register() {
                     </Row>
                     <div className="text-center" style={{ textAlign: "left" }}>
                       Have an account ?{" "}
-                      <Link
-                        to="/"
-                        className="anchor-links link-decor links"
-                      >
+                      <Link to="/" className="anchor-links link-decor links">
                         <strong className="text-primary ">Login</strong>
                       </Link>
                     </div>
