@@ -1,18 +1,16 @@
 import React from "react";
 
+import { FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
-import Auth from "../Auth";
-// import {  useFormik } from "formik";
 
 function Register() {
   return (
     <>
-      <Auth />
       <div className="login-bg">
         <div
           className="text-center "
@@ -21,7 +19,8 @@ function Register() {
           <Row>
             <Col style={{ marginTop: "10px", marginBottom: "10px" }}>
               <Card>
-                <Card.Header>t
+                <Card.Header>
+                  <FaUser size={40} className="text-info" />
                   <h3>Register Account</h3>
                 </Card.Header>
                 <Card.Body>
@@ -101,6 +100,56 @@ function Register() {
                       </Form.Group>
                     </Row>
                     <Row className="mb-2">
+                      <Col md={6}>
+                        <Form.Group>
+                          <FloatingLabel
+                            controlId="security_question"
+                            label="Security Question"
+                            className="mb-1"
+                          >
+                            <Form.Select aria-label="security_question">
+                              <option value=""></option>
+                              <option value="favourite_color">
+                                Favourite Colour
+                              </option>
+                              <option value="country_side">
+                                Best Countryside Area
+                              </option>
+                              <option value="birth_place">Birth Place</option>
+                            </Form.Select>
+                          </FloatingLabel>
+                        </Form.Group>
+                      </Col>
+                      <Col md={6}>
+                        <Form.Group>
+                          <FloatingLabel
+                            controlId="security_answer"
+                            label="Security answer"
+                            className="mb-1"
+                          >
+                            <Form.Control
+                              type="text"
+                              placeholder="Security Answer"
+                            />
+                          </FloatingLabel>
+                        </Form.Group>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Form.Group className="mb-1" controlId="phone_number">
+                        <FloatingLabel
+                          controlId="phone_number"
+                          label="Phone Number"
+                          className="mb-2"
+                        >
+                          <Form.Control
+                            type="phone_number"
+                            placeholder="Phone Number"
+                          />
+                        </FloatingLabel>
+                      </Form.Group>
+                    </Row>
+                    <Row className="mb-2">
                       <Col md={4}>
                         <Form.Group>
                           <FloatingLabel
@@ -128,6 +177,7 @@ function Register() {
                           </FloatingLabel>
                         </Form.Group>
                       </Col>
+
                       <Col md={4}>
                         <Form.Group>
                           <FloatingLabel

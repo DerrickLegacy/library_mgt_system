@@ -1,5 +1,6 @@
 .app {
-  margin: 20px 20px;
+  margin: 5px 2px;
+  /* background-color: rgb(197, 219, 245); */
 }
 .no-page-found {
   display: grid;
@@ -9,6 +10,7 @@
 }
 .login-bg {
   background-image: url("/public/images/janko-ferlic-sfL_QOnmy00-unsplash.jpg");
+  margin-top: 2px;
 }
 .links {
   text-decoration: none;
@@ -20,4 +22,8 @@
 }
 button:disabled {
   opacity: 0.25;
+}
+.header-page {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
 }

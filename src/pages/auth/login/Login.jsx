@@ -6,10 +6,11 @@ import { Form } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
-import Auth from "../Auth";
 import * as yup from "yup";
-
 import { useFormik } from "formik";
+import { FaUser } from "react-icons/fa";
+import ForgotPassword from "../forgot_password/ForgotPassword";
+// import Header from "../../../components/header/Header";
 
 const initialValues = {
   username: "",
@@ -26,17 +27,24 @@ const validationSchema = yup.object().shape({
     .required("Password is required!"),
 });
 
-function Login() {
+function Login({ loginAuth }) {
   let navigate = useNavigate();
   const [members, setMembers] = useState([]);
   const [formInput, setFormInput] = useState({});
   const [invalid, setInvalid] = useState(false);
 
+  // const [loginStatus, setLoginStatus] = useState(false);
+  // const alterLoginStatus = (data) =>
+  // {
+  //   setLoginStatus(data);
+  //   loginAuth(loginStatus);
+  //   }
+
   const onSubmit = async (values, actions) => {
     // console.log(actions);
     await new Promise((resolve) => {
       setFormInput(values);
-      setTimeout(resolve, 2000);
+      setTimeout(resolve, 1000);
     });
     actions.resetForm();
     const result = members.filter(
@@ -44,7 +52,7 @@ function Login() {
     );
 
     if (result.length > 1) {
-      console.log(result);
+      loginAuth(true);
       navigate("/home");
     } else {
       setInvalid(true);
@@ -74,12 +82,13 @@ function Login() {
     isSubmitting,
     touched,
     handleSubmit,
+    resetForm,
   } = useFormik({
     initialValues: initialValues,
     validationSchema: validationSchema,
     onSubmit,
   });
-  const validateEntryCredentials = () => {
+  const validateEntryCredentials = async () => {
     const isValidMember = members.filter((member) => {
       return (
         member.username === values.username &&
@@ -90,30 +99,32 @@ function Login() {
     console.log(isValidMember);
 
     if (isValidMember.length > 0) {
-      // Valid credentials, navigate to the home page
       navigate("/home");
     } else {
-      // Invalid credentials, show error message
-      // console.log("Invalid Credentials");
       setInvalid(true);
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // Use Formik's resetForm method to reset the form inputs
+      resetForm();
     }
   };
 
   return (
-    <div className="loggin">
-      <Auth />
-
+    <div>
       <div className="login-bg">
         <div
           className="text-center "
-          style={{ width: "30%", margin: "0% auto" }}
+          style={{
+            width: "30%",
+            margin: "0px auto",
+          }}
         >
           <Row>
-            <Col style={{ marginTop: "30px", marginBottom: "40px" }}>
+            <Col style={{ marginTop: "8px", marginBottom: "4px" }}>
               <Form onSubmit={handleSubmit}>
                 <Card>
                   <Card.Header>
-                    <h3>Sign In</h3>
+                    <FaUser size={38} className="text-info" />
+                    <h4>Sign In</h4>
                     {invalid ? (
                       <h6 style={{ color: "red" }}>
                         <em>Invalid Credentials !</em>
@@ -175,21 +186,22 @@ function Login() {
                       ></Form.Check>
                     </div>
                     <div
-                      className="text-primary text-center"
+                      className="text-primary text-center text-info"
                       style={{ textAlign: "left" }}
                     >
-                      <strong>Forgot Password ?</strong>
+                      <ForgotPassword />
+
                       <br />
                       <Link
                         to="/register"
-                        className="anchor-links link-decor links"
+                        className="anchor-links link-decor links text-info"
                       >
                         <strong className="ml-10">Register for Account</strong>
                       </Link>
                     </div>
                   </Card.Body>
                 </Card>
-                <div className="mt-2" style={{ textAlign: "center" }}>
+                <div className="mt-1" style={{ textAlign: "center" }}>
                   <Button
                     disabled={isSubmitting}
                     type="submit"
