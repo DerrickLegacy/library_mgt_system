@@ -4,18 +4,10 @@ import { Row, Col, Stack, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import Login from "./login/Login";
 import Register from "./register/Register";
+import Header from "../../components/heade_footer/header/Header";
 
-function Auth({ authRoute }) {
+function Auth() {
   const [login, setLogin] = useState(true);
-  const [loginStatus, setLoginStatus] = useState(false);
-
-  const alterLoginStatus = (data) => {
-    setLoginStatus(data);
-    authRoute(loginStatus);
-  };
-
-  // const [loginStatus, setLoginStatus] = useState(false);
-  // const [showProfile, setShowProfile] = useState(2);
   const navigate = useNavigate();
 
   const handleLogin = () => {
@@ -25,14 +17,13 @@ function Auth({ authRoute }) {
   };
 
   const handleRegister = () => {
-    // Update the URL to "/register" and disable login
     setLogin(false);
-    // setRegister(true);
     navigate("/register");
   };
   return (
     <>
-      <Row className="bg-info ">
+      <Header showSearch={false} />
+      <Row className="text-white" style={{ backgroundColor: "#11111f" }}>
         <Col md={2} className="text-center">
           <img src="/images/book_shelf_icon.PNG" height="100px" alt="" />
         </Col>
@@ -59,7 +50,7 @@ function Auth({ authRoute }) {
       </Row>
       <hr />
       {/* Render Login or Register based on the login state */}
-      {login ? <Login loginAuth={alterLoginStatus} /> : <Register />}
+      {login ? <Login /> : <Register />}
     </>
   );
 }

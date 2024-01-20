@@ -6,7 +6,7 @@
   display: grid;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 70vh;
 }
 .login-bg {
   background-image: url("/public/images/janko-ferlic-sfL_QOnmy00-unsplash.jpg");
@@ -26,4 +26,43 @@ button:disabled {
 .header-page {
   margin-left: 0px !important;
   margin-right: 0px !important;
+}
+
+/* Sear\ch Bar */
+.custom-title {
+  /* font-size: 10px; */
+  color: #0a0a0a; /* Example text color */
+  padding: 8px; /* Example padding */
+  /* Add any other styles you want */
+}
+.custom-title:hover {
+  background-color: #eaebec; /* Example background color */
+}
+
+/* drop down */
+.search-dropdown {
+  position: absolute;
+  z-index: 1000;
+  left: 54%;
+  transform: translateX(-54%);
+  width: 10%; /* Make the dropdown span the full width */
+}
+.dropdown-col {
+  background-color: rgb(242, 240, 247);
+}
+
+.search-dropdown.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.homepage-body {
+  height: 100vh;
 }

@@ -1,7 +1,7 @@
 import ThemeProvider from 'react-bootstrap/ThemeProvider'
 import './App.css';
-import Routings from './routing/Routings';
-import Header from './components/header/Header';
+import Routings from './Routes/Routings';
+// import Header from './components/header/Header';
 import { useState } from 'react';
 
 function App() {
@@ -13,14 +13,14 @@ function App() {
   }
   return (
     <>
-      <ThemeProvider breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
+      {/* <ThemeProvider breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
         minBreakpoint="xxs"
-      >
-        <Header />
+      > */}
+        {/* <Header /> */}
         <div className='app' >
           <Routings routeApp={alterLoginStatus} />
         </div>
-      </ThemeProvider>
+      {/* </ThemeProvider> */}
 
     </>
   );

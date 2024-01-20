@@ -32,6 +32,19 @@ app.get('/api/members', (req, res) => {
     });
 });
 
+app.get('/api/books', (req, res) => {
+    connection.query("SELECT * FROM books", (err, results) => {
+        if (err) {
+            console.log("Error retrieving book details", err.message);
+            res.status(500).json({ error: 'Internal Server Error' });
+        } else {
+            console.log(results);
+            res.json(results);
+        }
+    });
+});
+
+
 // Start the server
 app.listen(port, () => {
     console.log('Server is running on port ${ 3600 }');

@@ -10,7 +10,6 @@ import * as yup from "yup";
 import { useFormik } from "formik";
 import { FaUser } from "react-icons/fa";
 import ForgotPassword from "../forgot_password/ForgotPassword";
-// import Header from "../../../components/header/Header";
 
 const initialValues = {
   username: "",
@@ -27,21 +26,13 @@ const validationSchema = yup.object().shape({
     .required("Password is required!"),
 });
 
-function Login({ loginAuth }) {
+function Login() {
   let navigate = useNavigate();
   const [members, setMembers] = useState([]);
   const [formInput, setFormInput] = useState({});
   const [invalid, setInvalid] = useState(false);
 
-  // const [loginStatus, setLoginStatus] = useState(false);
-  // const alterLoginStatus = (data) =>
-  // {
-  //   setLoginStatus(data);
-  //   loginAuth(loginStatus);
-  //   }
-
   const onSubmit = async (values, actions) => {
-    // console.log(actions);
     await new Promise((resolve) => {
       setFormInput(values);
       setTimeout(resolve, 1000);
@@ -50,9 +41,7 @@ function Login({ loginAuth }) {
     const result = members.filter(
       (member) => member.username === formInput.username
     );
-
     if (result.length > 1) {
-      loginAuth(true);
       navigate("/home");
     } else {
       setInvalid(true);
@@ -66,7 +55,7 @@ function Login({ loginAuth }) {
         return response.json();
       })
       .then((data) => {
-        console.log(data); // Check the fetched data in the console
+        // console.log(data); // Check the fetched data in the console
         setMembers(data);
       })
       .catch((error) => {
@@ -88,6 +77,7 @@ function Login({ loginAuth }) {
     validationSchema: validationSchema,
     onSubmit,
   });
+
   const validateEntryCredentials = async () => {
     const isValidMember = members.filter((member) => {
       return (
@@ -95,15 +85,11 @@ function Login({ loginAuth }) {
         member.password === values.password
       );
     });
-
-    console.log(isValidMember);
-
     if (isValidMember.length > 0) {
       navigate("/home");
     } else {
       setInvalid(true);
       await new Promise((resolve) => setTimeout(resolve, 2000));
-      // Use Formik's resetForm method to reset the form inputs
       resetForm();
     }
   };
