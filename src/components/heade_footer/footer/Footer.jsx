@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
+import Image from "react-bootstrap/Image";
 import {
   FaFacebook,
   FaTwitter,
@@ -50,12 +51,13 @@ function Footer() {
               }}
             />
             <p className="text-center">
-              <img
+              <Image
                 src="/images/leiada-krozjhen-AbcSYWxnzGo-unsplash.jpg"
                 alt="lms icon"
                 height={160}
                 width={160}
-                style={{ borderRadius: "50%" }}
+                roundedCircle
+                // fluid
               />
             </p>
             <p>

@@ -9,9 +9,7 @@ function Homepage() {
       <Row>
         <Header showSearch={true} showHeader={true} />
       </Row>
-      <Row>
-        <div className="homepage-body"></div>
-      </Row>
+      
       <Row>
         <Footer />
       </Row>

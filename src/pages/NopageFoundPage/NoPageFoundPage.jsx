@@ -1,12 +1,12 @@
 import React from "react";
-import Homepage from "../homepage/Homepage";
+// import Homepage from "../homepage/Homepage";
 import Footer from "../../components/heade_footer/footer/Footer";
 import Header from "../../components/heade_footer/header/Header";
 
 export default function NoPageFoundPage() {
   return (
     <>
-      <Header />
+      <Header showSearch={true} showHeader={true} />
       <div
         className="text-center no-page-found"
         style={{ backgroundColor: "lightgray" }}

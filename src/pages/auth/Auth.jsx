@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { Row, Col, Stack, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
@@ -6,7 +6,7 @@ import Login from "./login/Login";
 import Register from "./register/Register";
 import Header from "../../components/heade_footer/header/Header";
 
-function Auth() {
+function Auth({ loginAuth }) {
   const [login, setLogin] = useState(true);
   const navigate = useNavigate();
 
@@ -15,6 +15,9 @@ function Auth() {
     setLogin(true);
     navigate("/");
   };
+  useEffect(() => {
+    setLogin(loginAuth);
+  }, [loginAuth]);
 
   const handleRegister = () => {
     setLogin(false);
