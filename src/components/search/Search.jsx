@@ -4,7 +4,7 @@ import { Form } from "react-bootstrap";
 import { Row, Col, InputGroup, Button } from "react-bootstrap";
 import { FaSearch } from "react-icons/fa";
 
-function Search({ dataItems, showDropDown }) {
+function  Search({ dataItems, showDropDown }) {
   const dataItemToSearchIn = dataItems;
   const [showDropDownContainer, setShowDropDownContainer] = useState(true);
   const [value, setValue] = useState("");

@@ -6,9 +6,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 function NavigationBar() {
   return (
     <>
-      <Navbar
-        expand="lg" // className="bg-body-tertiary"
-      >
+      <Navbar expand="lg">
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/home">Home</Nav.Link>
@@ -77,6 +75,7 @@ function NavigationBar() {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
+      <hr style={{ width: "100%" }} />
     </>
   );
 }

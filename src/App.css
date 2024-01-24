@@ -6,11 +6,12 @@
   display: grid;
   align-items: center;
   justify-content: center;
-  height: 70vh;
+  /* height: 70vh; */
 }
 .login-bg {
   background-image: url("/public/images/janko-ferlic-sfL_QOnmy00-unsplash.jpg");
   margin-top: 2px;
+  /* height: 70vh; */
 }
 .links {
   text-decoration: none;
@@ -66,3 +67,6 @@ button:disabled {
 .homepage-body {
   height: 100vh;
 }
+/* .hero-component {
+  height: 10px;
+} */

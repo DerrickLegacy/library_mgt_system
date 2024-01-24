@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BsFillCartPlusFill } from "react-icons/bs";
-import { Row, Col, Button, Accordion, Modal, Form } from "react-bootstrap";
+import { Row, Col, Button} from "react-bootstrap";
 import Search from "../../search/Search";
 // import { Col, Row } from "react-bootstrap";
 import {
@@ -12,16 +12,12 @@ import {
   FaWhatsapp,
 } from "react-icons/fa";
 import Clock from "../../clock/Clock";
-import NavigationBar from "../../NavigationBar/NavigationBar";
-
-function Header({ showHeader, showSearch }) {
+function  Header({ showHeader, showSearch }) {
   const [showSearchBar, setShowSearchBar] = useState(true);
   const [showProfile, setShowProfile] = useState(false);
   const [iconColumnSize, setIconColumnSize] = useState(9);
   const [books, setBooks] = useState([]);
-  const [buttonClicked, setButtonClicked] = useState(false);
   var colSize = 9;
-  const [show, setShow] = useState(false);
 
   useEffect(() => {
     fetch("http://localhost:3600/api/books")
@@ -41,20 +37,6 @@ function Header({ showHeader, showSearch }) {
     setIconColumnSize(colSize);
     // console.log(showProfile + " in header");
   }, [showHeader, colSize, showProfile]);
-
-  const handleButtonClick = (event) => {
-    setButtonClicked(!buttonClicked);
-    event.stopPropagation();
-  };
-  const handleClose = (event) => {
-    setShow(false);
-    event.stopPropagation();
-  };
-  const handleShow = (event) => {
-    setShow(true);
-    event.stopPropagation();
-  };
-
   return (
     <>
       <div
@@ -119,79 +101,16 @@ function Header({ showHeader, showSearch }) {
               <BsFillCartPlusFill size={30} /> <span className="p-3">| </span>
               <Button variant="primary">
                 Cart
-                {/* <Badge bg="primary" pill>
-                14
-              </Badge> */}
               </Button>
             </Col>
           </Row>
           <Row
             className="border border-secondary "
-            // style={{ backgroundColor: "#11111f" }}
           >
-            <Col>
-              <div className="p-3 border border-secondary ">
-                <Accordion defaultActiveKey="0">
-                  <Accordion.Item eventKey="0">
-                    <Accordion.Header>
-                      Reading List{" "}
-                      <Button
-                        variant="primary"
-                        className={`rounded-circle btn-sm ms-4 ${
-                          buttonClicked ? "btn-clicked" : ""
-                        }`}
-                        onClick={(handleButtonClick, handleShow)}
-                      >
-                        +
-                      </Button>
-                      {/* Modal */}
-                      <Modal show={show} onHide={handleClose} backdrop="static">
-                        <Modal.Header closeButton   >
-                          <Modal.Title>Create New List</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                          <Form>
-                            <Form.Group controlId="list-name">
-                              <Form.Label className="fw-bold">Name</Form.Label>
-                              <Form.Control placeholder="Enter list name..." />
-                            </Form.Group>
-
-                            <Form.Group
-                              className="mb-2"
-                              controlId="description"
-                            >
-                              <Form.Label className="fw-bold">
-                                Description
-                              </Form.Label>
-                              <Form.Control placeholder="Description" />
-                            </Form.Group>
-                          </Form>
-                        </Modal.Body>
-                        <Modal.Footer>
-                          <Button variant="secondary" onClick={handleClose}>
-                            Close
-                          </Button>
-                          <Button variant="primary" onClick={handleClose}>
-                            Save Changes
-                          </Button>
-                        </Modal.Footer>
-                      </Modal>
-                    </Accordion.Header>
-                    <Accordion.Body>Accordion Body Content</Accordion.Body>
-                  </Accordion.Item>
-                </Accordion>
-              </div>
-            </Col>
-            <Col xs={9}>
-              <div className="border border-secondary">
-                <NavigationBar />
-                <hr />
-                <div></div>
-              </div>
-            </Col>
+            
           </Row>
           <Row>
-            <Col>{/* </div> */}</Col>
+            {/* <Col></div></Col> */}
           </Row>
         </>
       ) : null}

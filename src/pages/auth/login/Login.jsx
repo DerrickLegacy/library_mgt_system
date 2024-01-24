@@ -101,11 +101,12 @@ function Login() {
           className="text-center "
           style={{
             width: "30%",
-            margin: "0px auto",
+            height: "",
+            margin: "auto",
           }}
         >
           <Row>
-            <Col style={{ marginTop: "18px", marginBottom: "18px" }}>
+            <Col style={{ marginTop: "25px", marginBottom: "22px" }}>
               <Form onSubmit={handleSubmit}>
                 <Card>
                   <Card.Header>

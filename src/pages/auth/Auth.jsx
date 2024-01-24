@@ -27,14 +27,12 @@ function Auth({ loginAuth }) {
     <>
       <Header showSearch={false} />
       <Row className="text-white" style={{ backgroundColor: "#11111f" }}>
-        <Col md={2} className="text-center">
-          <img src="/images/book_shelf_icon.PNG" height="100px" alt="" />
-        </Col>
-        <Col md={8}>
-          <h1 style={{ fontSize: "50px" }}> Library Management System </h1>
-          <h6>
-            <em>"An entire archive at yoiur finger tips..!"</em>
-          </h6>
+        <Col md={10} className="d-flex align-items-center text-left pl-1">
+          <img
+            src="/images/lms-icon.PNG"
+            alt="Library Management System Logo"
+            height={70}
+          />
         </Col>
         <Col md={2} className="text-center d-flex justify-content-center">
           <Stack direction="horizontal" gap={1} className="">
@@ -52,7 +50,6 @@ function Auth({ loginAuth }) {
         </Col>
       </Row>
       <hr />
-      {/* Render Login or Register based on the login state */}
       {login ? <Login /> : <Register />}
     </>
   );
