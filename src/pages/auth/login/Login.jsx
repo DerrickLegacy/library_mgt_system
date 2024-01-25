@@ -55,7 +55,6 @@ function Login() {
         return response.json();
       })
       .then((data) => {
-        // console.log(data); // Check the fetched data in the console
         setMembers(data);
       })
       .catch((error) => {

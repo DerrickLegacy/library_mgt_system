@@ -1,4 +1,3 @@
-// server.js
 
 const express = require('express');
 const app = express();
@@ -6,7 +5,6 @@ const cors = require('cors')
 const port = 3600;
 
 app.use(cors());
-
 // Assuming you are using a MySQL database
 const mysql = require('mysql');
 

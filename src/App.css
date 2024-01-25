@@ -67,6 +67,6 @@ button:disabled {
 .homepage-body {
   height: 100vh;
 }
-/* .hero-component {
-  height: 10px;
-} */
+.hero-image {
+  height: 400px;
+}
