@@ -5,6 +5,8 @@ import { Row, Col } from "react-bootstrap";
 import NavigationBar from "../../components/NavigationBar/NavigationBar";
 import LeftSideNav from "../../components/NavigationBar/LeftSideNav";
 import Hero from "../../components/hero/Hero";
+import Filter from "../../components/Filter/Filter";
+import BookCategoryDetailsDisplay from "../../components/book_category_display/BookCategoryDetailsDisplay";
 
 function Homepage() {
   const [currentComponent, setCurrentComponent] = useState("home");
@@ -21,7 +23,7 @@ function Homepage() {
             </Col>
             <Col xs={9} className="border ">
               {/* Pass setComponent as componentToggle */}
-              <NavigationBar componentToggle={setComponent} />
+              <NavigationBar componentToggle={setComponent} setMore={true} />
 
               <div id="hero" className="hero-component">
                 <Hero />
@@ -29,8 +31,27 @@ function Homepage() {
             </Col>
           </>
         );
-      case "fiction":
-        return <div>Home n</div>;
+      case "Fiction":
+        return (
+          <div className="mt-1 mb-1">
+            <Row>
+              <Col>
+                <NavigationBar
+                  currentComponent={currentComponent}
+                  setMore={false}
+                />
+              </Col>{" "}
+            </Row>
+            <Row>
+              <Col xs={3}>
+                <Filter currentComponent={currentComponent} />
+              </Col>
+              <Col xs={9}>
+                <BookCategoryDetailsDisplay />
+              </Col>
+            </Row>
+          </div>
+        );
       default:
         return null;
     }

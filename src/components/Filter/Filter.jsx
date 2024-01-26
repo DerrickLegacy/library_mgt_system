@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Card, FormControl, InputGroup } from "react-bootstrap";
 // import { GiCancel } from "react-icons/gi";
 
-function Filter() {
+function Filter({ currentComponent }) {
   const [selectedFilters, setSelectedFilters] = useState([]);
   const filterCategories = [
     "Action",
@@ -47,14 +47,20 @@ function Filter() {
   //   );
   // };
 
-
   return (
-    <Card>
-      <Card.Header>
-        <Card.Title>More filters...</Card.Title>
-      </Card.Header>
-      <Card.Body>
-        {/* {selectedFilters.length > 0 && (
+    <>
+      <div>
+        <h4>
+          Home/ {""}
+          {currentComponent}
+        </h4>
+      </div>
+      <Card>
+        <Card.Header>
+          <Card.Title>More filters...</Card.Title>
+        </Card.Header>
+        <Card.Body>
+          {/* {selectedFilters.length > 0 && (
           <div>
             {selectedFilters.map((selectedFilter, index) => (
               <InputGroup key={index}>
@@ -74,20 +80,20 @@ function Filter() {
             <hr />
           </div>
         )} */}
-        {filterCategories.map((filterCategory) => {
-          return (
-            <InputGroup className="mb-1">
-              <InputGroup.Checkbox
-                onClick={handleFilterSelection}
-                value={filterCategory}
-              />
-              <FormControl disabled placeholder={filterCategory} />
-            </InputGroup>
-          );
-        })}
-      </Card.Body>
-      
-    </Card>
+          {filterCategories.map((filterCategory) => {
+            return (
+              <InputGroup className="mb-1">
+                <InputGroup.Checkbox
+                  onClick={handleFilterSelection}
+                  value={filterCategory}
+                />
+                <FormControl disabled placeholder={filterCategory} />
+              </InputGroup>
+            );
+          })}
+        </Card.Body>
+      </Card>
+    </>
   );
 }
 

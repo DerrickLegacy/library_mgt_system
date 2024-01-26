@@ -4,8 +4,8 @@ import NoPageFoundPage from "../pages/NopageFoundPage/NoPageFoundPage";
 import Homepage from "../pages/homepage/Homepage";
 import Auth from "../pages/auth/Auth";
 import Hero from "../components/hero/Hero";
-import BookCategoryDisplay from "../components/book_category_display/BookCategoryDisplay";
 import Filter from "../components/Filter/Filter";
+import BookCategoryDetailsDisplay from "../components/book_category_display/BookCategoryDetailsDisplay";
 
 function Routings({ routeApp }) {
   return (
@@ -15,9 +15,8 @@ function Routings({ routeApp }) {
         <Route path="/home" element={<Homepage />} />
         <Route path="/register" element={<Auth loginAuth={false} />} />
         <Route path="*" element={<NoPageFoundPage />} />
-        <Route path="/category" element={<BookCategoryDisplay />} />
+        <Route path="/category" element={<BookCategoryDetailsDisplay />} />
         <Route path="/hero" element={<Hero />} />
-        <Route path="filter" element={<Filter />} />
       </Routes>
     </>
   );
