@@ -49,12 +49,6 @@ function Filter({ currentComponent }) {
 
   return (
     <>
-      <div>
-        <h4>
-          Home/ {""}
-          {currentComponent}
-        </h4>
-      </div>
       <Card>
         <Card.Header>
           <Card.Title>More filters...</Card.Title>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Button,
   Card,
@@ -18,6 +18,13 @@ import { FaFileDownload } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 function BookCategoryDetailsDisplay() {
+  const [showModal, setShowModal] = useState(false);
+  const modalShowStatus = () => {
+    setShowModal(true);
+  };
+  const modalCloseStatus = () => {
+    setShowModal(false);
+  };
   return (
     <>
       <Row>
@@ -75,27 +82,31 @@ function BookCategoryDetailsDisplay() {
                 </Card.Subtitle>
               </div>
               <div>
-                <Col sm={3}>
+                <Col xs={4}>
                   <Card>
                     <Card.Img
                       variant="top"
+                      height={200}
                       key={1}
-                      src="/images/German_castle.jpg"
+                      src="/images/yemen.webp"
                     />
                     <Card.Body>
-                      <h5>Title : Fictious House</h5>
-                      <h6>
-                        Author : <span>Ahaabwe Derrick</span>
-                      </h6>
-                      <h6>ISBN : 67389bgh2678</h6>
-                      <h6>Book ID : 67</h6>
-                      <hr />
-                      <div>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Fugiat, repellat aliquam! Officia at neque illum
-                        et molestiae consequatur obcaecati cupiditate cumque
-                        excepturi omnis maiores, p.
-                      </div>
+                      <h5>
+                        <Row>
+                          <Col xs={4}>Title</Col>{" "}
+                          <Col xs={8}>: Fictious House</Col>
+                        </Row>{" "}
+                      </h5>
+                      <Row>
+                        <Col xs={4}>Author</Col>{" "}
+                        <Col xs={8}>: Ahaabwe Derrick</Col>
+                      </Row>
+                      <Row>
+                        <Col xs={4}>ISBN </Col> <Col xs={8}>: 67389bgh2678</Col>
+                      </Row>
+                      <Row>
+                        <Col xs={4}>Book ID </Col> <Col xs={8}>: 67</Col>
+                      </Row>
                     </Card.Body>
                     <Card.Footer>
                       <Stack
@@ -103,15 +114,15 @@ function BookCategoryDetailsDisplay() {
                         gap={2}
                         className="d-flex justify-content-center"
                       >
-                        <Button variant="info">
+                        <Button variant="info" onClick={modalShowStatus}>
                           <span>Details </span>
                           <CgDetailsMore size={20} />
                         </Button>
                         <div className="modal">
-                          <Modal size="lg" show={true} centered>
+                          <Modal size="lg" show={showModal} centered>
                             <Modal.Header>
                               <Modal.Title>
-                                <h6>Title : Fictious House</h6>
+                                <h4>Title : Fictious House</h4>
                               </Modal.Title>{" "}
                             </Modal.Header>
                             <Modal.Body>
@@ -207,9 +218,7 @@ function BookCategoryDetailsDisplay() {
                               <Button variant="outline-success">
                                 Download <FaFileDownload size={20} />
                               </Button>
-                              <Button >
-                                Close
-                              </Button>
+                              <Button onClick={modalCloseStatus}>Close</Button>
                             </Modal.Footer>
                           </Modal>
                         </div>

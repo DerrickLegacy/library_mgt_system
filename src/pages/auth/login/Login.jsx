@@ -50,7 +50,9 @@ function Login() {
   };
 
   useEffect(() => {
-    fetch("http://localhost:3600/api/members")
+    const controller = new AbortController();
+    const signal = controller.signal;
+    fetch("http://localhost:3600/api/members", { signal })
       .then((response) => {
         return response.json();
       })
@@ -60,6 +62,9 @@ function Login() {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
+    return () => {
+      controller.abort();
+    };
   }, []);
 
   const {

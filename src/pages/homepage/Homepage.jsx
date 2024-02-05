@@ -10,9 +10,12 @@ import BookCategoryDetailsDisplay from "../../components/book_category_display/B
 
 function Homepage() {
   const [currentComponent, setCurrentComponent] = useState("home");
-  const setComponent = (data) => {
-    setCurrentComponent(data);
+  const setComponent = (component) => {
+    setCurrentComponent(component);
   };
+  // const componentToggle = (component) => {
+  //   setCurrentComponent(component);
+  // }
   const renderComponent = useCallback(() => {
     switch (currentComponent) {
       case "home":
@@ -37,10 +40,19 @@ function Homepage() {
             <Row>
               <Col>
                 <NavigationBar
+                  componentToggle={setComponent}
                   currentComponent={currentComponent}
                   setMore={false}
                 />
               </Col>{" "}
+            </Row>
+            <Row>
+              <div>
+                <h4>
+                  Home/ {""}
+                  {currentComponent}
+                </h4>
+              </div>
             </Row>
             <Row>
               <Col xs={3}>
